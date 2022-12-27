@@ -1,0 +1,29 @@
+#!/bin/bash
+#This is script of function which print each characters of string in a new line
+#This assignmnet is done by Danayit Girma (GSR/2925/15) and Jale Lijalem (GSR/2053/15)
+echo "Welcome to this UI"
+separator()
+{
+        echo "Please enter a string"
+        read string
+        for ((i=0; i<${#string}; i++));
+        do
+        echo "${string:i:1}"
+        done
+}
+echo "Do you want to insert another string?"
+read answer
+while [[ $answer == yes ]]
+do
+        echo "Enter any key except q to continue"
+        read answer1
+        if [[ $answer1 == "q" ]]
+        then
+                echo "Thank you for using the service"
+                exit
+        else
+                separator
+                echo "${string:i:1}"
+        fi
+done
+echo "Thank you for visiting the service"

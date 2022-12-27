@@ -1,0 +1,35 @@
+#!/bin/bash
+#This is script of function which used to insert one string into another based on user position preference
+#This assignmnet is done by Danayit Girma (GSR/2925/15) and Jale Lijalem (GSR/2053/15)
+echo "Welcome to string inserting UI"
+insert ()
+{
+echo "please enter the first str"
+read str1
+j=$(echo -n "$str1" | wc -m)
+echo "please enter the second str"
+read str2
+echo "please enter the position where you want to put the string"
+read i
+new=$(echo ${str1: -($j): i-1})
+new1=$(echo ${str1: i-1: j-i+1})
+new+=$str2
+new+=$new1
+}
+echo "Do u want to insert two strings?, if not, please insert q"
+read answer
+while [[ $answer == "yes" ]]
+do
+echo "Enter any word except q to continue"
+        read answer2
+        if [[ $answer2 == "q" ]]
+        then
+                echo "Thank you for using the service"
+                exit
+        else
+                insert
+                echo "$new"
+        fi
+done
+echo "Thank you for visiting the service"
+
